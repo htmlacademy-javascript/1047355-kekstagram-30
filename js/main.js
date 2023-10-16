@@ -13,10 +13,24 @@ const createCommentsData = (itemCount) => {
     'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
     'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'];
 
+  const name = [
+    'Александр',
+    'Екатерина',
+    'Иван',
+    'Мария',
+    'Сергей',
+    'Ольга',
+    'Дмитрий',
+    'Анна',
+    'Павел',
+    'Наталья'
+  ];
+
   return new Array(itemCount).fill(1).map((start,index) => ({
     id: start + index,
     avatar: `img/avatar-/${getRandomIntegers(1, 6)}.svg`,
-    message: getRandomItem(message)
+    message: getRandomItem(message),
+    name: getRandomItem(name)
   }));
 
 };
