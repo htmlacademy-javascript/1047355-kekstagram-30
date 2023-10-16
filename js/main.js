@@ -3,4 +3,6 @@ const getRandomIntegers = (min, max) => {
   return Math.floor(randomNumber);
 };
 
-void (getRandomIntegers());
+const getRandomItem = (items) => [getRandomIntegers(0, items.length - 1)];
+
+void (getRandomIntegers(), getRandomItem());
