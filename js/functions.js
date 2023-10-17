@@ -2,7 +2,7 @@
 const fitsLength = (text, maxLength) => text.length <= maxLength;
 
 
-// функция проверки на палиндромность
+// функция проверки на палиндром
 const isPalindrome = (sequence) => {
   const text = String(sequence).toLowerCase().replaceAll(' ', '');
   const reversedText = text.split('').reverse().join('');
