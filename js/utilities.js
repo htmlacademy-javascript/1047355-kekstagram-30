@@ -24,4 +24,4 @@ const getRandomItem = (items) => {
 
 void (fitsLength,isPalindrome,parseDigits);
 
-export {getRandomInteger,getRandomItem};
+export {fitsLength, isPalindrome, parseDigits, getRandomInteger, getRandomItem};
