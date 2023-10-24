@@ -45,7 +45,7 @@ const createImagesData = (itemCount = 25) => {
     url: `photos/${start + index}.jpg`,
     description: getRandomItem(description),
     likes: getRandomInteger(15, 200),
-    Comment: createCommentsData(getRandomInteger(0, 30))
+    comments: createCommentsData(getRandomInteger(0, 30))
   }));
 };
 export {createImagesData};
