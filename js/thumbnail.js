@@ -1,10 +1,10 @@
 const container = document.querySelector('.pictures');
-const templateUserPictures = document.querySelector('#picture').content.querySelector('.picture');
+const template = document.querySelector('#picture').content.querySelector('.picture');
 
 
-const createThumbnails = (picturesData) => picturesData.map((properties) => {
+const createThumbnails = (imagesData) => imagesData.map((properties) => {
   const {url, description, likes, comments} = properties;
-  const thumbnail = templateUserPictures.cloneNode(true);
+  const thumbnail = template.cloneNode(true);
   thumbnail.querySelector('.picture__img').src = url;
   thumbnail.querySelector('.picture__img').alt = description;
   thumbnail.querySelector('.picture__likes').textContent = likes;
@@ -13,9 +13,9 @@ const createThumbnails = (picturesData) => picturesData.map((properties) => {
   return thumbnail;
 });
 
-const renderThumbnails = (picturesData) => {
-  container.querySelectorAll('.picture').forEach((thumbnail) => thumbnail.remove);
-  container.append(...createThumbnails(picturesData));
+const renderThumbnails = (imagesData) => {
+  container.querySelectorAll('.picture').forEach((thumbnail) => thumbnail.remove());
+  container.append(...createThumbnails(imagesData));
 };
 
 export {renderThumbnails};
