@@ -1,6 +1,10 @@
 const container = document.querySelector('.pictures');
 const template = document.querySelector('#picture').content.querySelector('.picture');
 
+const createThumbnailClickHandler = (properties) => (evt) => {
+  evt.preventDefault();
+  document.dispatchEvent(new CustomEvent('thumbnailSelect', {detail: properties}));
+};
 
 const createThumbnails = (imagesData) => imagesData.map((properties) => {
   const {url, description, likes, comments} = properties;
@@ -9,6 +13,7 @@ const createThumbnails = (imagesData) => imagesData.map((properties) => {
   thumbnail.querySelector('.picture__img').alt = description;
   thumbnail.querySelector('.picture__likes').textContent = likes;
   thumbnail.querySelector('.picture__comments').textContent = comments.length;
+  thumbnail.addEventListener('click', createThumbnailClickHandler(properties));
 
   return thumbnail;
 });
