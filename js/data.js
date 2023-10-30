@@ -25,7 +25,7 @@ const createCommentsData = (itemCount) => {
 
   return new Array(itemCount).fill(1).map((start,index) => ({
     id: start + index,
-    avatar: `img/avatar-/${getRandomInteger(1, 6)}.svg`,
+    avatar: `img/avatar-${getRandomInteger(1, 6)}.svg`,
     message: getRandomItem(message),
     name: getRandomItem(name)
   }));
