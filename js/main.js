@@ -1,4 +1,3 @@
 import {createImagesData} from './data.js';
-import {renderThumbnails} from './thumbnail.js';
-
-renderThumbnails(createImagesData());
+import {setupImageGallery} from './gallery/main.js';
+setupImageGallery(createImagesData());
