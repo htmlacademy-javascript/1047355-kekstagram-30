@@ -1,7 +1,12 @@
-import {createImagesData} from '../data.js';
-import {renderThumbnails} from './thumbnail.js';
-import './popup.js';
-import {onThumbnailClick} from './popup-controller.js';
-renderThumbnails(createImagesData());
-onThumbnailClick();
 
+import {renderThumbnails} from './thumbnail.js';
+import {renderPopup} from './popup.js';
+
+const setupImageGallery = (imagesData) => {
+  renderThumbnails(imagesData);
+
+  document.addEventListener('thumbnailSelect', (event) => {
+    renderPopup(event.detail);
+  });
+};
+export {setupImageGallery};
