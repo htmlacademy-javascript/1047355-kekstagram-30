@@ -24,10 +24,10 @@ function onCancelButtonClick () {
 
 const openPopup = () => {
   popup.classList.remove('hidden');
+  popup.scroll(0, 0);
   document.body.classList.add('modal-open');
   document.addEventListener('keydown', onDocumentKeyDown);
   closeButton.addEventListener('click', onCancelButtonClick);
-
 };
 
 const renderPopup = (properties) => {
