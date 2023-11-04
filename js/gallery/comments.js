@@ -1,8 +1,9 @@
+const COMMENTS_DISPLAY_LIMIT = 5;
 const container = document.querySelector('.social__comments');
 const shownCounter = document.querySelector('.social__comment-shown-count');
 const totalCounter = document.querySelector('.social__comment-total-count');
 const loaderButton = document.querySelector('.comments-loader');
-const COMMENTS_DISPLAY_LIMIT = 5;
+
 
 const createComment = (commentsData) => commentsData.map((properties) => {
   const {avatar, name, message} = properties;
