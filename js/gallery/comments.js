@@ -1,9 +1,9 @@
+const COMMENTS_DISPLAY_LIMIT = 5;
 const container = document.querySelector('.social__comments');
-const commentCounter = document.querySelector('.social__comment-count');
-const commentLoader = document.querySelector('.comments-loader');
+const shownCounter = document.querySelector('.social__comment-shown-count');
+const totalCounter = document.querySelector('.social__comment-total-count');
+const loaderButton = document.querySelector('.comments-loader');
 
-commentCounter.classList.add('hidden');
-commentLoader.classList.add('hidden');
 
 const createComment = (commentsData) => commentsData.map((properties) => {
   const {avatar, name, message} = properties;
@@ -16,9 +16,19 @@ const createComment = (commentsData) => commentsData.map((properties) => {
   return comment;
 });
 
+const currentCommentsData = [];
+const onLoaderButtonClick = () => {
+  container.append(...createComment(currentCommentsData.splice(0, COMMENTS_DISPLAY_LIMIT)));
+  shownCounter.textContent = container.childElementCount;
+  loaderButton.classList.toggle('hidden', !currentCommentsData.length);
+};
+
 const renderComments = (commentsData) => {
-  container.querySelectorAll('.social__comment').forEach((commentsItem) => commentsItem.remove());
-  container.append(...createComment(commentsData));
+  currentCommentsData.splice(0, currentCommentsData.length, ...commentsData);
+  container.replaceChildren();
+  totalCounter.textContent = commentsData.length;
+  loaderButton.addEventListener('click',onLoaderButtonClick);
+  loaderButton.click();
 };
 
 export {renderComments};
