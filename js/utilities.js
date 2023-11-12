@@ -1,3 +1,11 @@
+const request = async (url, options) => {
+  const response = await fetch(url, options);
+
+  if (!response.ok) {
+    throw new Error(response.status);
+  }
+  return response.json();
+};
 const fitsLength = (text, maxLength) => text.length <= maxLength;
 
 const isPalindrome = (sequence) => {
@@ -24,4 +32,4 @@ const getRandomItem = (items) => {
 
 void (fitsLength,isPalindrome,parseDigits);
 
-export {fitsLength, isPalindrome, parseDigits, getRandomInteger, getRandomItem};
+export {fitsLength, isPalindrome, parseDigits, getRandomInteger, getRandomItem, request};
