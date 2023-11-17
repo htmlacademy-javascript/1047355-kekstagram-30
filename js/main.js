@@ -1,4 +1,4 @@
-import {request, debounce} from './utilities.js';
+import {request, throttle} from './utilities.js';
 import {renderStatus} from './status.js';
 import { setupImageGallery } from './gallery/main.js';
 import {setSubmitDisabled, resetForm} from './upload/main.js';
@@ -19,7 +19,7 @@ document.addEventListener('formdata', async (event) => {
 });
 
 try {
-  setupImageGallery(await request(`${baseUrl}/data`), debounce);
+  setupImageGallery(await request(`${baseUrl}/data`), throttle);
 } catch {
   renderStatus('data-error', {autoHide: 5000});
 }
