@@ -1,10 +1,9 @@
-
 const [scaleDownButton, display, scaleUpButton] = document.querySelectorAll('.scale__control');
-const config = {min: 25, max: 100, step:25, defaultValue: 100};
+const config = {min: 25, max: 100, step: 25, defaultValue: 100};
 
 const setScale = (value) => {
-  value = Math.max (value, config.min);
-  value = Math.min (value, config.max);
+  value = Math.max(value, config.min);
+  value = Math.min(value, config.max);
   display.value = `${value}%`;
   display.dispatchEvent(new Event('change', {bubbles: true}));
 };

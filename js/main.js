@@ -19,7 +19,7 @@ document.addEventListener('formdata', async (event) => {
 });
 
 try {
-  setupImageGallery(await request(`${baseUrl}/data`), throttle);
+  setupImageGallery(await request(`${baseUrl}data`), throttle);
 } catch {
   renderStatus('data-error', {autoHide: 5000});
 }
