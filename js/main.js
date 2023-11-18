@@ -1,6 +1,6 @@
 import {request, throttle} from './utilities.js';
 import {renderStatus} from './status.js';
-import { setupImageGallery } from './gallery/main.js';
+import {setupImageGallery} from './gallery/main.js';
 import {setSubmitDisabled, resetForm} from './upload/main.js';
 
 const baseUrl = 'https://30.javascript.pages.academy/kekstagram/';
@@ -11,7 +11,7 @@ document.addEventListener('formdata', async (event) => {
     await request(baseUrl, {method: 'post', body: event.formData });
     resetForm();
     renderStatus('success');
-  } catch (exception) {
+  } catch {
     renderStatus('error');
   } finally {
     setSubmitDisabled(false);
