@@ -4,7 +4,7 @@ const applyRandomFilter = (imagesData, itemLimit = 10) => {
 };
 
 const applyDiscussedFilter = (imagesData) => {
-  const compare = (a, b) => b.comments.length - a.comments.length;
+  const compare = (imageA, imageB) => imageB.comments.length - imageA.comments.length;
   return [...imagesData].sort(compare);
 };
 
